@@ -11,7 +11,7 @@ const signupUser = async (req, res) => {
 //get all users
 
 const getAllUsers = async (req, res) => {
-	res.json({ mssg: "get all users" });
+	res.json({ message: "get all users" });
 };
 
 module.exports = { signupUser, loginUser, getAllUsers };

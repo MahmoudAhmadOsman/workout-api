@@ -23,12 +23,10 @@ mongoose
 	.connect(process.env.MONGO_URI || "mongodb://localhost/paysiiDB")
 	.then(() => {
 		app.listen(process.env.PORT, () => {
-			console.log(
-				"Connected to MongoDB & listening on PORT: ",
-				process.env.PORT
-			);
+			console.log("Connected to MongoDB  ");
+			console.log("Server running on PORT: ", process.env.PORT);
 		});
 	})
 	.catch((error) => {
-		console.log(error);
+		console.log(error.message);
 	});
