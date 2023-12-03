@@ -32,7 +32,7 @@ const Home = () => {
 					<div className="col-md-6">
 						{workouts && workouts.length > 0 ? (
 							workouts.map((workout) => (
-								<div className="card shadow-lg p-3 mb-5 bg-body rounded p-2 m-1" key={workout._id}>
+								<div className="card shadow-lg p-3 m-1 bg-body rounded p-2 " key={workout._id}>
 									<div className="card-body">
 										<WorkoutDetails workout={workout} key={workout._id} />
 									</div>
