@@ -11,7 +11,7 @@ const WorkoutDetails = ({ workout }) => {
 	const { dispatch } = useWorkoutsContext(); // use this hook instead of using useState hook
 
 	const handleClick = async () => {
-		const response = await fetch("/api/workouts/" + workout._id, {
+		const response = await fetch("https://mern-stack-api-5lyq.onrender.com/api/workouts/" + workout._id, {
 			method: "DELETE",
 		});
 		const json = await response.json();
