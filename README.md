@@ -3,9 +3,10 @@ This project, named "mern-auth," is a workout sample API integrated with an Expr
 
 #### API LINK:
 `
- https://mern-stack-api-5lyq.onrender.com/api/workouts
+ [Visit](https://mern-stack-api-5lyq.onrender.com/api/workouts) 
 `
 #### FRONTEND LINK: 
 `
 https://mern-auth-six-sigma.vercel.app/
+[Visit](https://mern-auth-six-sigma.vercel.app/) 
 `
