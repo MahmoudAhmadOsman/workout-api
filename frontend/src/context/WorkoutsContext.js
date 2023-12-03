@@ -3,7 +3,7 @@ import { createContext } from "react";
 
 export const WorkoutsContext = createContext(); // context name
 
-//3. create Redcumer
+//3. create or define Reducer
 
 export const workoutsReducer = (state, action) => {
 	switch (action.type) {
@@ -24,9 +24,9 @@ export const workoutsReducer = (state, action) => {
 	}
 };
 
-//1st context
+//1. create context
 export const WorkoutsContextProvider = ({ children }) => {
-	// 	//2.Redcumer
+	//2. Use useReducer hook and pass your defined reducer name
 	const [state, dispatch] = useReducer(workoutsReducer, {
 		workouts: null,
 	});
