@@ -8,5 +8,4 @@ This project, named "mern-auth," is a workout sample API integrated with an Expr
 #### FRONTEND LINK: 
 `
 https://mern-auth-six-sigma.vercel.app/
-
 `
