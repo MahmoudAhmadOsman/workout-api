@@ -36,6 +36,16 @@ const Home = () => {
 					<>
 						<div className="row">
 							<div className="col-md-6">
+								{workouts.length === 0 ? (
+									<div></div>
+								) : (
+									<div>
+										{" "}
+										<h2 className="text-success">Workout Details</h2>
+										<hr />
+									</div>
+								)}
+
 								{workouts && workouts.length > 0 ? (
 									workouts.map((workout) => (
 										<div
@@ -43,8 +53,6 @@ const Home = () => {
 											key={workout._id}
 										>
 											<div className="card-body">
-												<h2 className="text-success">Workout Details</h2>
-												<hr />
 												<WorkoutDetails workout={workout} key={workout._id} />
 											</div>
 										</div>
