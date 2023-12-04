@@ -28,7 +28,8 @@ export const workoutsReducer = (state, action) => {
 export const WorkoutsContextProvider = ({ children }) => {
 	//2. Use useReducer hook and pass your defined reducer name
 	const [state, dispatch] = useReducer(workoutsReducer, {
-		workouts: null,
+		// workouts: null,
+		workouts: [],
 	});
 
 	return (
