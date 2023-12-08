@@ -71,7 +71,7 @@ const Navigation = () => {
 									</li>
 								</ul>
 							</li>
-							<li className="nav-item">
+							{/* <li className="nav-item">
 								<Link
 									className="nav-link disabled"
 									to="#"
@@ -80,7 +80,7 @@ const Navigation = () => {
 								>
 									Disabled
 								</Link>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 				</div>
