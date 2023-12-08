@@ -24,7 +24,7 @@ const Navigation = () => {
 						className="collapse navbar-collapse fw-bold text-uppercase"
 						id="navbarSupportedContent"
 					>
-						<ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+						<ul className="navbar-nav me-5 ms-auto mb-lg-0">
 							<li className="nav-item">
 								<Link
 									className="nav-link active"
