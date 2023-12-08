@@ -17,6 +17,6 @@ router.post("/signup", signupUser);
 
 //get all users
 
-router.get("/list", getAllUsers);
+router.get("/", getAllUsers);
 
 module.exports = router;

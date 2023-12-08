@@ -6,7 +6,7 @@ import WorkoutForm from "../components/WorkoutForm";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 const Home = () => {
-	// const [workouts, setWorkouts] = useState(null);
+	// const [workouts, setWorkouts] = useState([]);
 	const { workouts, dispatch } = useWorkoutsContext(); // use this instead of useState hook
 
 	useEffect(() => {
