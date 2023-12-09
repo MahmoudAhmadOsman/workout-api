@@ -71,16 +71,11 @@ const Navigation = () => {
 									</li>
 								</ul>
 							</li>
-							{/* <li className="nav-item">
-								<Link
-									className="nav-link disabled"
-									to="#"
-									tabIndex={-1}
-									aria-disabled="true"
-								>
-									Disabled
+							<li className="nav-item">
+								<Link className="nav-link" to="#">
+									REGISTER
 								</Link>
-							</li> */}
+							</li>
 						</ul>
 					</div>
 				</div>
