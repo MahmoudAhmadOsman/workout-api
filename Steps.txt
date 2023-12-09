@@ -1,0 +1,4 @@
+Steps to create ReactContext instances
+
+1. create: AuthContext() function that has authReducer and AuthContextProvider functions
+2. create useAuthContext function inside hooks folder that consume the AuthContext

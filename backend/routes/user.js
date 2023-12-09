@@ -18,7 +18,7 @@ router.post("/login", loginUser);
 router.post("/signup", signupUser);
 
 //get all users
-router.get("/", getAllUsers);
+router.get("/list", getAllUsers);
 
 router.get("/:id", getUser);
 

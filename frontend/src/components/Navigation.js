@@ -72,7 +72,7 @@ const Navigation = () => {
 								</ul>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="#">
+								<Link className="nav-link" to="/signup">
 									REGISTER
 								</Link>
 							</li>
