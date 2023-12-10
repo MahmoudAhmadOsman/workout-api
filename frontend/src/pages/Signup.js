@@ -25,6 +25,11 @@ const Signup = () => {
 				<div className="row justify-content-center">
 					<div className="col-md-4">
 						<div className="bg-light shadow-lg p-3 p-md-5">
+							{error && (
+								<p className="text-danger text-center fs-4 border border-danger p-2">
+									{error}
+								</p>
+							)}
 							<form className="signup" onSubmit={handleSubmit}>
 								<h3 className="text-uppercase text-center text-success ">
 									Register
@@ -72,11 +77,10 @@ const Signup = () => {
 							<p className="text-muted mt-2">
 								Already have an account? &nbsp;
 								<Link className="text-primary" to="/login">
-									 Sign In
+									Sign In
 								</Link>
 							</p>
 						</div>
-						{error && <p className="text-danger text-center fs-4">{error}</p>}
 					</div>
 				</div>
 			</div>

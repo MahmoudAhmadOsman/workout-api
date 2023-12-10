@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
 
 const Navigation = () => {
+	const { logout } = useLogout();
+
+	const handleClick = () => {
+		logout();
+	};
 	return (
 		<div className="site_navigation">
 			<nav className="navbar navbar-expand-sm justify-content-center navbar-light bg-light ">
@@ -52,11 +58,11 @@ const Navigation = () => {
 								</Link>
 								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 									<li>
-										<Link className="dropdown-item" to="#">
-											Action
+										<Link className="dropdown-item" onClick={handleClick}>
+											Logout
 										</Link>
 									</li>
-									<li>
+									{/* <li>
 										<Link className="dropdown-item" to="#">
 											Another
 										</Link>
@@ -68,7 +74,7 @@ const Navigation = () => {
 										<Link className="dropdown-item" to="#">
 											Something
 										</Link>
-									</li>
+									</li> */}
 								</ul>
 							</li>
 							<li className="nav-item">

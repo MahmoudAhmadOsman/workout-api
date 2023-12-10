@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSignup } from "../hooks/useSignup";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const { signup, error, isLoading } = useSignup();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -17,6 +19,11 @@ const Login = () => {
 				<div className="row justify-content-center">
 					<div className="col-md-4">
 						<div className="bg-light shadow-lg p-3 p-md-5">
+							{error && (
+								<p className="text-danger text-center fs-4 border border-danger p-2">
+									{error}
+								</p>
+							)}
 							<form className="signup" onSubmit={handleSubmit}>
 								<h3 className="text-uppercase text-center text-success ">
 									Login
