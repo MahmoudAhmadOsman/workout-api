@@ -1,14 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSignup } from "../hooks/useSignup";
 
 const Signup = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-
+	const { signup, error, isLoading } = useSignup(); //signup, error, isLoading: are imported fron userSignup hook
+	const navigate = useNavigate();
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		//send the request to the backend by create custom hook called [useSignup]
+		await signup(email, password);
 
 		console.log("Email: ", email, "Password: ", password);
+		// navigate("/login");
+		// setEmail("");
+		// setPassword("");
 	};
 
 	return (
@@ -19,7 +27,7 @@ const Signup = () => {
 						<div className="bg-light shadow-lg p-3 p-md-5">
 							<form className="signup" onSubmit={handleSubmit}>
 								<h3 className="text-uppercase text-center text-success ">
-									Sign Up
+									Register
 								</h3>
 								<hr />
 								<div className="form-group mb-3">
@@ -51,20 +59,24 @@ const Signup = () => {
 									/>
 								</div>
 
-								<button
-									type="submit"
-									className="btn btn-outline-primary fw-bold btn-lg"
-								>
-									Sign up
-								</button>
+								<div className="d-grid gap-2 mt-3">
+									<button
+										type="submit"
+										className="btn btn-outline-primary fw-bold btn-lg"
+										disabled={isLoading}
+									>
+										RESIGER
+									</button>
+								</div>
 							</form>
 							<p className="text-muted mt-2">
-								Already have an account?
+								Already have an account? &nbsp;
 								<Link className="text-primary" to="/login">
-									Sign In
+									 Sign In
 								</Link>
 							</p>
 						</div>
+						{error && <p className="text-danger text-center fs-4">{error}</p>}
 					</div>
 				</div>
 			</div>

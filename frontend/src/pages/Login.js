@@ -45,18 +45,19 @@ const Login = () => {
 										id="firstName"
 										name="firstName"
 										placeholder="Password"
-										className="form-control form-control-lg fs-6"
+										className="form-control form-control-lg fs-6 MB-3"
 										onChange={(e) => setPassword(e.target.value)}
 										value={password}
 									/>
 								</div>
-
-								<button
-									type="submit"
-									className="btn btn-outline-primary fw-bold btn-lg"
-								>
-									Sign up
-								</button>
+								<div className="d-grid gap-2 MT-3">
+									<button
+										type="submit"
+										className="btn btn-outline-primary fw-bold btn-lg"
+									>
+										LOGIN
+									</button>
+								</div>
 							</form>
 							<p className="text-muted mt-2">
 								Don't have an account?{" "}
