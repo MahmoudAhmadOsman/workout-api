@@ -15,7 +15,7 @@ const Login = () => {
 		await login(email, password); //logout the user
 
 		// console.log("Email: ", email, "Password: ", password);
-		navigate("/");
+		// navigate("/");//not ideal
 	};
 
 	return (

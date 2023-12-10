@@ -37,17 +37,14 @@ const WorkoutForm = () => {
 		// 	}
 		// );
 
-		const response = await fetch(
-			"https://mern-stack-api-5lyq.onrender.com/api/workouts",
-			{
-				method: "POST",
-				body: JSON.stringify(workout),
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${user.token}`,
-				},
-			}
-		);
+		const response = await fetch("/api/workouts", {
+			method: "POST",
+			body: JSON.stringify(workout),
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${user.token}`,
+			},
+		});
 		const json = await response.json();
 
 		if (!response.ok) {
