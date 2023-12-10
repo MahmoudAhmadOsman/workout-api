@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export const useSignup = () => {
 	const [error, setError] = useState(null);
 	const [isLoading, setIsLoading] = useState(null);
 	const { dispatch } = useAuthContext();
+	const navigate = useNavigate();
 
 	const signup = async (email, password) => {
 		setIsLoading(true);
@@ -33,6 +36,18 @@ export const useSignup = () => {
 
 			//3. update loading state
 			setIsLoading(false);
+
+			setTimeout(() => {
+				Swal.fire({
+					icon: "success",
+					position: "top-center",
+					title: "Succcess",
+					text: "Regisgered created successfully!",
+					showConfirmButton: true,
+					timer: 25000,
+				});
+				navigate("/login");
+			});
 		}
 	};
 
