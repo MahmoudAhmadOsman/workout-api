@@ -13,9 +13,9 @@ export const useLogout = () => {
 		//3. dispatch logout action
 		dispatch({ type: "LOGOUT" });
 
-		//redirect the user to login page afte logout
-		navigate("/login");
+			navigate("/login");//redirect the user to login page afte logout
 	};
+	
 
 	return { logout };
 };
