@@ -1,3 +1,4 @@
+import { useAuthContext } from "../hooks/useAuthContext";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import {
 	format,
@@ -9,11 +10,31 @@ import {
 
 const WorkoutDetails = ({ workout }) => {
 	const { dispatch } = useWorkoutsContext(); // use this hook instead of using useState hook
+	const { user } = useAuthContext(); // get the logged in user
 
 	const handleClick = async () => {
-		const response = await fetch("https://mern-stack-api-5lyq.onrender.com/api/workouts/" + workout._id, {
-			method: "DELETE",
-		});
+		if (!user) {
+			return;
+		}
+
+		// const response = await fetch(
+		// 	"https://mern-stack-api-5lyq.onrender.com/api/workouts/" + workout._id,
+		// 	{
+		// 		method: "DELETE",
+		// 		headers: { Authorization: `Bearer ${user.token}` },
+		// 	}
+		// );
+
+		const response = await fetch(
+			"https://mern-stack-api-5lyq.onrender.com/api/workouts/" + workout._id,
+			{
+				method: "DELETE",
+				headers: {
+					Authorization: `Bearer ${user.token}`,
+				},
+			}
+		);
+
 		const json = await response.json();
 
 		if (response.ok) {

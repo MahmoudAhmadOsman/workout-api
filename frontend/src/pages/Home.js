@@ -1,18 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 // components
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
+import { useAuthContext } from "../hooks/useAuthContext"; //1. import the useAuthContext
+
 const Home = () => {
 	// const [workouts, setWorkouts] = useState([]);
 	const { workouts, dispatch } = useWorkoutsContext(); // use this instead of useState hook
+	const { user } = useAuthContext(); //1. get the logged in user to see the data
 
 	useEffect(() => {
 		const fetchWorkouts = async () => {
 			const response = await fetch(
-				"https://mern-stack-api-5lyq.onrender.com/api/workouts"
+				"https://mern-stack-api-5lyq.onrender.com/api/workouts",
+				{
+					headers: { Authorization: `Bearer ${user.token}` },
+				}
 			);
 			const json = await response.json();
 
@@ -21,9 +27,10 @@ const Home = () => {
 				dispatch({ type: "SET_WORKOUTS", payload: json });
 			}
 		};
-
-		fetchWorkouts();
-	}, []);
+		if (user) {
+			fetchWorkouts(); // only show if there is user
+		}
+	}, [dispatch, user]);
 
 	return (
 		<div className="home">

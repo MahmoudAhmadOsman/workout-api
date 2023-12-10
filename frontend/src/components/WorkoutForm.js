@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const WorkoutForm = () => {
 	const [title, setTitle] = useState("");
@@ -9,18 +10,44 @@ const WorkoutForm = () => {
 	const [emptyFields, setEmptyFields] = useState([]);
 	const { dispatch } = useWorkoutsContext(); // use this hook instead of using useState hook
 
+	const { user } = useAuthContext();
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
+		if (!user) {
+			setError("You must be logged in!");
+			return;
+		}
+
 		const workout = { title, load, reps };
 
-		const response = await fetch("https://mern-stack-api-5lyq.onrender.com/api/workouts", {
-			method: "POST",
-			body: JSON.stringify(workout),
-			headers: {
-				"Content-Type": "application/json",
-			},
-		});
+		// const response = await fetch(
+		// 	"https://mern-stack-api-5lyq.onrender.com/api/workouts",
+		// 	{
+		// 		method: "POST",
+		// 		body: JSON.stringify(workout),
+		// 		headers: {
+		// 			"Content-Type": "application/json",
+		// 			headers: {
+		// 				Authorization: `Bearer ${user.token}`,
+		// 			},
+
+		// 		},
+		// 	}
+		// );
+
+		const response = await fetch(
+			"https://mern-stack-api-5lyq.onrender.com/api/workouts",
+			{
+				method: "POST",
+				body: JSON.stringify(workout),
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${user.token}`,
+				},
+			}
+		);
 		const json = await response.json();
 
 		if (!response.ok) {
