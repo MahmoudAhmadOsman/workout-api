@@ -1,12 +1,6 @@
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
-import {
-	format,
-	formatDistance,
-	formatDistanceToNow,
-	formatRelative,
-	subDays,
-} from "date-fns";
+import { formatDistanceToNow } from "date-fns";
 
 const WorkoutDetails = ({ workout }) => {
 	const { dispatch } = useWorkoutsContext(); // use this hook instead of using useState hook
@@ -16,14 +10,6 @@ const WorkoutDetails = ({ workout }) => {
 		if (!user) {
 			return;
 		}
-
-		// const response = await fetch(
-		// 	"https://mern-stack-api-5lyq.onrender.com/api/workouts/" + workout._id,
-		// 	{
-		// 		method: "DELETE",
-		// 		headers: { Authorization: `Bearer ${user.token}` },
-		// 	}
-		// );
 
 		const response = await fetch(
 			"https://mern-stack-api-5lyq.onrender.com/api/workouts/" + workout._id,
@@ -40,7 +26,7 @@ const WorkoutDetails = ({ workout }) => {
 		if (response.ok) {
 			dispatch({ type: "DELETE_WORKOUT", payload: json });
 		} else {
-			alert("Unable to delete");
+			alert("Unable to delete this record!");
 		}
 	};
 	return (

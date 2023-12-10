@@ -22,21 +22,6 @@ const WorkoutForm = () => {
 
 		const workout = { title, load, reps };
 
-		// const response = await fetch(
-		// 	"https://mern-stack-api-5lyq.onrender.com/api/workouts",
-		// 	{
-		// 		method: "POST",
-		// 		body: JSON.stringify(workout),
-		// 		headers: {
-		// 			"Content-Type": "application/json",
-		// 			headers: {
-		// 				Authorization: `Bearer ${user.token}`,
-		// 			},
-
-		// 		},
-		// 	}
-		// );
-
 		const response = await fetch(
 			"https://mern-stack-api-5lyq.onrender.com/api/workouts",
 			{

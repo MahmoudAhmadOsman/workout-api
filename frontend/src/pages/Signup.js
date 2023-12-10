@@ -12,7 +12,7 @@ const Signup = () => {
 		//send the request to the backend by create custom hook called [useSignup]
 		await signup(email, password);
 
-		console.log("Email: ", email, "Password: ", password);
+		// console.log("Email: ", email, "Password: ", password);
 		// setEmail("");
 		// setPassword("");
 	};

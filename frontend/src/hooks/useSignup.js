@@ -46,7 +46,7 @@ export const useSignup = () => {
 					showConfirmButton: true,
 					timer: 25000,
 				});
-				navigate("/login");
+				// navigate("/login");
 			});
 		}
 	};
