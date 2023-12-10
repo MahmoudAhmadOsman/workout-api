@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext"; // to get the logged user information
 
 const Navigation = () => {
 	const { logout } = useLogout();
+	const { user } = useAuthContext(); // to get the logged user information
 
 	const handleClick = () => {
 		logout();
@@ -46,42 +49,40 @@ const Navigation = () => {
 								</Link>
 							</li>
 							<li className="nav-item dropdown">
-								<Link
-									className="nav-link dropdown-toggle"
-									href="#"
-									id="navbarDropdown"
-									role="button"
-									data-bs-toggle="dropdown"
-									aria-expanded="false"
-								>
-									MAHMOUD
-								</Link>
-								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-									<li>
-										<Link className="dropdown-item" onClick={handleClick}>
-											Logout
+								{user && (
+									<>
+										<Link
+											className="nav-link dropdown-toggle"
+											href="#"
+											id="navbarDropdown"
+											role="button"
+											data-bs-toggle="dropdown"
+											aria-expanded="false"
+										>
+											{user.email}
 										</Link>
-									</li>
-									{/* <li>
-										<Link className="dropdown-item" to="#">
-											Another
-										</Link>
-									</li>
-									<li>
-										<hr className="dropdown-divider" />
-									</li>
-									<li>
-										<Link className="dropdown-item" to="#">
-											Something
-										</Link>
-									</li> */}
-								</ul>
+										<ul
+											className="dropdown-menu"
+											aria-labelledby="navbarDropdown"
+										>
+											<li>
+												<Link className="dropdown-item" onClick={handleClick}>
+													Logout
+												</Link>
+											</li>
+										</ul>
+									</>
+								)}
 							</li>
-							<li className="nav-item">
-								<Link className="nav-link" to="/signup">
-									REGISTER
-								</Link>
-							</li>
+							{!user && (
+								<>
+									<li className="nav-item">
+										<Link className="nav-link" to="/signup">
+											REGISTER
+										</Link>
+									</li>
+								</>
+							)}
 						</ul>
 					</div>
 				</div>
