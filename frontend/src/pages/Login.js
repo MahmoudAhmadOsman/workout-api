@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSignup } from "../hooks/useSignup";
+import { useLogin } from "../hooks/useLogin";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const { signup, error, isLoading } = useSignup();
+	const { login, error, isLoading } = useLogin();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		console.log("Email: ", email, "Password: ", password);
+		await login(email, password); //logout the user
+
+		// console.log("Email: ", email, "Password: ", password);
 	};
 
 	return (
@@ -61,6 +63,7 @@ const Login = () => {
 									<button
 										type="submit"
 										className="btn btn-outline-primary fw-bold btn-lg"
+										disabled={isLoading}
 									>
 										LOGIN
 									</button>

@@ -7,16 +7,12 @@ const Signup = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const { signup, error, isLoading } = useSignup(); //signup, error, isLoading: are imported fron userSignup hook
-	const navigate = useNavigate();
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		//send the request to the backend by create custom hook called [useSignup]
 		await signup(email, password);
 
- 
-
 		console.log("Email: ", email, "Password: ", password);
-		//navigate("/login");
 		// setEmail("");
 		// setPassword("");
 	};
