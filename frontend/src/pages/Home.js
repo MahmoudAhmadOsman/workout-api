@@ -12,6 +12,7 @@ const Home = () => {
 	// const [workouts, setWorkouts] = useState([]);
 	const { workouts, dispatch } = useWorkoutsContext(); // use this instead of useState hook
 	const { user } = useAuthContext(); //1. get the logged in user to see the data
+	// console.log("Home User: ", user);
 
 	useEffect(() => {
 		const fetchWorkouts = async () => {
@@ -28,7 +29,7 @@ const Home = () => {
 		if (user) {
 			fetchWorkouts(); // only show if there is user
 		}
-		console.log("Login User: ", user);
+		console.log("Logged User: ", user);
 	}, [dispatch, user]);
 
 	return (

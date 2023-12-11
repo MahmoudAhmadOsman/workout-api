@@ -48,7 +48,7 @@ const Navigation = () => {
 									WORKOUTS
 								</Link>
 							</li>
-							 
+
 							<li className="nav-item dropdown">
 								{user && (
 									<>
@@ -71,9 +71,14 @@ const Navigation = () => {
 													Logout
 												</Link>
 											</li>
-											<li>
-												<Link className="dropdown-item">Name: {user._id}</Link>
-											</li>
+
+											{user && (
+												<>
+													<li className="nav-item">
+														<Link className="nav-link">{user.firstName}</Link>
+													</li>
+												</>
+											)}
 										</ul>
 									</>
 								)}

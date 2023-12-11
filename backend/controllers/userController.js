@@ -38,9 +38,9 @@ const signupUser = async (req, res) => {
 		//create the token before signing up the user
 		const token = createToken(user._id);
 
-		//res.status(200).json(user, email, token); // testing only: don't send everything
+		// res.status(200).json(user, email, token); // testing only: don't send everything
 
-		//Only send back the email and the token, no need for other infor
+		//Only send back the email and the token, no need for other info when using POSTMAN
 		res.status(200).json({ email, token });
 	} catch (error) {
 		res.status(400).json({ error: error.message });
