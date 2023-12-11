@@ -13,8 +13,8 @@ const Signup = () => {
 		await signup(email, password);
 
 		// console.log("Email: ", email, "Password: ", password);
-		// setEmail("");
-		// setPassword("");
+		setEmail("");
+		setPassword("");
 	};
 
 	return (

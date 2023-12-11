@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Workout = require("../models/workoutModel");
 
 //get all workouts
-//Limit each user to only see his work by using the user_id and pass find({}) by the user id
+
 // const getWorkouts = async (req, res) => {
 // 	const user_id = req.user._id;
 // 	try {
@@ -15,44 +15,12 @@ const Workout = require("../models/workoutModel");
 // get all workouts
 const getWorkouts = async (req, res) => {
 	const user_id = req.user._id;
-
-	const workouts = await Workout.find({ user_id }).sort({ createdAt: -1 });
+	const workouts = await Workout.find({ user_id }).sort({ createdAt: -1 }); //Limit each user to only see his work by using the user_id and pass find({}) by the user id
 
 	res.status(200).json(workouts);
 };
 
 //get new workout
-// const createWorkout = async (req, res) => {
-// 	const { title, load, reps } = req.body;
-
-// 	//check error
-
-// 	let emptyFields = [];
-// 	if (!title) {
-// 		emptyFields.push("title");
-// 	}
-// 	if (!load) {
-// 		emptyFields.push("load");
-// 	}
-// 	if (!reps) {
-// 		emptyFields.push("reps");
-// 	}
-
-// 	if (emptyFields.length > 0) {
-// 		return res
-// 			.status(400)
-// 			.json({ error: "Please fill in all the fields", emptyFields });
-// 	}
-// 	//add user id that belogs only to the user who is creating this workout// add to the workout collection when creating
-// 	try {
-// 		const user_id = req.user._id;
-// 		const workout = await Workout.create({ title, load, reps, user_id });
-// 		res.status(200).json(workout);
-// 	} catch (error) {
-// 		res.status(400).json({ error: error.message });
-// 	}
-// };
-
 const createWorkout = async (req, res) => {
 	const { title, load, reps } = req.body;
 
@@ -76,7 +44,7 @@ const createWorkout = async (req, res) => {
 	// add doc to db
 	try {
 		const user_id = req.user._id;
-		const workout = await Workout.create({ title, load, reps, user_id });
+		const workout = await Workout.create({ title, load, reps, user_id }); //add user_id to workout that belogs only to the user who is creating this workout
 		res.status(200).json(workout);
 	} catch (error) {
 		res.status(400).json({ error: error.message });

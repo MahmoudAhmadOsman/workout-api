@@ -28,11 +28,11 @@ export const useSignup = () => {
 			setError(json.error);
 		}
 		if (response.ok) {
+			//Below commented on 12/10/2023 and used navigate("/login") instead of login the user automatically
 			//1. save the user to local storage
-			localStorage.setItem("user", JSON.stringify(json));
-
+			// localStorage.setItem("user", JSON.stringify(json));
 			//2. update the auth context
-			dispatch({ type: "LOGIN", payload: json });
+			// dispatch({ type: "LOGIN", payload: json });
 
 			//3. update loading state
 			setIsLoading(false);
@@ -46,7 +46,7 @@ export const useSignup = () => {
 					showConfirmButton: true,
 					timer: 25000,
 				});
-				// navigate("/login");
+				navigate("/login");
 			});
 		}
 	};
