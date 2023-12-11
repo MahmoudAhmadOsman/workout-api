@@ -1,6 +1,7 @@
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { formatDistanceToNow } from "date-fns";
+import { BASE_URL } from "../service/SignUpService";
 
 const WorkoutDetails = ({ workout }) => {
 	const { dispatch } = useWorkoutsContext(); // use this hook instead of using useState hook
@@ -11,7 +12,7 @@ const WorkoutDetails = ({ workout }) => {
 			return;
 		}
 
-		const response = await fetch("/api/workouts/" + workout._id, {
+		const response = await fetch(BASE_URL + "/api/workouts/" + workout._id, {
 			method: "DELETE",
 			headers: {
 				Authorization: `Bearer ${user.token}`,

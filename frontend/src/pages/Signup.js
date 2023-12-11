@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import { useSignup } from "../hooks/useSignup";
 
 const Signup = () => {
+	const [firstName, setFirstName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const { signup, error, isLoading } = useSignup(); //signup, error, isLoading: are imported fron userSignup hook
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		//send the request to the backend by create custom hook called [useSignup]
-		await signup(email, password);
+		await signup(firstName, email, password);
 
 		// console.log("Email: ", email, "Password: ", password);
 		setEmail("");
@@ -33,14 +34,31 @@ const Signup = () => {
 									Register
 								</h3>
 								<hr />
+								{/* FirstName */}
+
+								<div className="form-group mb-3">
+									<label className="form-label" htmlFor="firstName">
+										First Name
+									</label>
+									<input
+										type="text"
+										id="firstName"
+										name="firstName"
+										placeholder="First name"
+										className="form-control form-control-lg fs-6"
+										onChange={(e) => setFirstName(e.target.value)}
+										value={firstName}
+									/>
+								</div>
+								{/* Email address */}
 								<div className="form-group mb-3">
 									<label className="form-label" htmlFor="email">
 										Email address
 									</label>
 									<input
 										type="email"
-										id="firstName"
-										name="firstName"
+										id="email"
+										name="email"
 										placeholder="Email"
 										className="form-control form-control-lg fs-6"
 										onChange={(e) => setEmail(e.target.value)}

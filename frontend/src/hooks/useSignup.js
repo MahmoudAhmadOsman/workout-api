@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../service/SignUpService";
 
 export const useSignup = () => {
 	const [error, setError] = useState(null);
@@ -9,18 +10,15 @@ export const useSignup = () => {
 	const { dispatch } = useAuthContext();
 	const navigate = useNavigate();
 
-	const signup = async (email, password) => {
+	const signup = async (firstName, email, password) => {
 		setIsLoading(true);
 		setError(null);
 
-		const response = await fetch(
-			"https://mern-stack-api-5lyq.onrender.com/api/user/signup",
-			{
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ email, password }),
-			}
-		);
+		const response = await fetch(BASE_URL + "/api/user/signup", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ firstName, email, password }),
+		});
 		const json = await response.json();
 
 		if (!response.ok) {
@@ -42,7 +40,7 @@ export const useSignup = () => {
 					icon: "success",
 					position: "top-center",
 					title: "Succcess",
-					text: "Regisgered created successfully!",
+					text: "Registered Successfully!",
 					showConfirmButton: true,
 					timer: 25000,
 				});

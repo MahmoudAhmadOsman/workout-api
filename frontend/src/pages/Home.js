@@ -6,6 +6,7 @@ import WorkoutForm from "../components/WorkoutForm";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 import { useAuthContext } from "../hooks/useAuthContext"; //1. import the useAuthContext
+import { BASE_URL } from "../service/SignUpService";
 
 const Home = () => {
 	// const [workouts, setWorkouts] = useState([]);
@@ -14,12 +15,9 @@ const Home = () => {
 
 	useEffect(() => {
 		const fetchWorkouts = async () => {
-			const response = await fetch(
-				"https://mern-stack-api-5lyq.onrender.com/api/workouts",
-				{
-					headers: { Authorization: `Bearer ${user.token}` },
-				}
-			);
+			const response = await fetch(BASE_URL + "/api/workouts", {
+				headers: { Authorization: `Bearer ${user.token}` },
+			});
 			const json = await response.json();
 
 			if (response.ok) {
@@ -30,6 +28,7 @@ const Home = () => {
 		if (user) {
 			fetchWorkouts(); // only show if there is user
 		}
+		console.log("Login User: ", user);
 	}, [dispatch, user]);
 
 	return (

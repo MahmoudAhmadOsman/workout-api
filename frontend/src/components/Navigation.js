@@ -48,6 +48,7 @@ const Navigation = () => {
 									WORKOUTS
 								</Link>
 							</li>
+							 
 							<li className="nav-item dropdown">
 								{user && (
 									<>
@@ -69,6 +70,9 @@ const Navigation = () => {
 												<Link className="dropdown-item" onClick={handleClick}>
 													Logout
 												</Link>
+											</li>
+											<li>
+												<Link className="dropdown-item">Name: {user._id}</Link>
 											</li>
 										</ul>
 									</>
