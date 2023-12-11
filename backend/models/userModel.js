@@ -4,7 +4,31 @@ const validator = require("validator");
 
 const Schema = mongoose.Schema;
 
+// const userSchema = new Schema({
+// 	firstName: {
+// 		type: String,
+// 		required: true,
+// 	},
+// 	email: {
+// 		type: String,
+// 		required: true,
+// 		unique: true,
+// 	},
+// 	password: {
+// 		type: String,
+// 		required: true,
+// 	},
+// 	isAdmin: {
+// 		type: Boolean,
+// 		default: false,
+// 	},
+// });
+
 const userSchema = new Schema({
+	firstName: {
+		type: String,
+		required: true,
+	},
 	email: {
 		type: String,
 		required: true,
@@ -21,10 +45,16 @@ const userSchema = new Schema({
 });
 
 //Create static signup method
-userSchema.statics.signup = async function (email, password) {
-	// validate email and password
-	if (!email || !password) {
+userSchema.statics.signup = async function (firstName, email, password) {
+	// validate firstName, email and password
+	if (!firstName || !email || !password) {
 		throw Error("All fields must be filled!");
+	}
+	if (validator.isEmpty(firstName)) {
+		throw new Error("First name is required!");
+	}
+	if (!validator.isLength(firstName, { min: 2, max: 10 })) {
+		throw new Error("First name must be between 2 and  3 characters!");
 	}
 	if (!validator.isEmail(email)) {
 		throw Error("Email is not valid!");
@@ -43,7 +73,7 @@ userSchema.statics.signup = async function (email, password) {
 	const salt = await bcrypt.genSalt(10);
 	const hash = await bcrypt.hash(password, salt);
 	//create user
-	const user = await this.create({ email, password: hash });
+	const user = await this.create({ firstName, email, password: hash });
 	return user;
 };
 
