@@ -8,6 +8,7 @@ const WorkoutForm = () => {
 	const [load, setLoad] = useState("");
 	const [reps, setReps] = useState("");
 	const [error, setError] = useState(null);
+	const [isLoading, setIsLoading] = useState(null);
 	const [emptyFields, setEmptyFields] = useState([]);
 	const { dispatch } = useWorkoutsContext(); // use this hook instead of using useState hook
 
@@ -44,10 +45,10 @@ const WorkoutForm = () => {
 			setLoad("");
 			setReps("");
 
-			//window.location.reload(); //reload after form is submitted
 			//display the new workout action using dispatch in the context
 			dispatch({ type: "CREATE_WORKOUT", payload: json });
-			console.log("new workout added:", json);
+			setIsLoading(false);
+			// console.log("new workout added:", json);
 		}
 	};
 	return (
@@ -97,7 +98,9 @@ const WorkoutForm = () => {
 						onChange={(e) => setReps(e.target.value)}
 					/>
 				</div>
-				<button className="btn btn-success">Add Workout</button>
+				<button className="btn btn-success" disabled={isLoading}>
+					Add Workout
+				</button>
 				<div className="mb-3 mt-3 text-center">
 					{error && <h4 className="text-danger">{error}</h4>}
 				</div>
