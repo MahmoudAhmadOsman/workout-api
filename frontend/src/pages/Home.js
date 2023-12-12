@@ -32,7 +32,6 @@ const Home = () => {
 		if (user) {
 			fetchWorkouts(); // only show if there is user
 		}
-		console.log("Logged User: ", user);
 	}, [dispatch, user]);
 
 	return (

@@ -28,9 +28,9 @@ export const useSignup = () => {
 		if (response.ok) {
 			//Below commented on 12/10/2023 and used navigate("/login") instead of login the user automatically
 			//1. save the user to local storage
-			// localStorage.setItem("user", JSON.stringify(json));
+			localStorage.setItem("user", JSON.stringify(json));
 			//2. update the auth context
-			// dispatch({ type: "LOGIN", payload: json });
+			// dispatch({ type: "LOGIN", payload: json }); // don't sigin the user automatically
 
 			//3. update loading state
 			setIsLoading(false);

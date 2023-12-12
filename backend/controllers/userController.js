@@ -16,8 +16,9 @@ const loginUser = async (req, res) => {
 		// create a token
 		const token = createToken(user._id);
 
-		res.status(200).json({ email, token });
-		// res.status(200).json({ firstName, email, token });//testing
+		// res.status(200).json({ email, token });
+
+		res.status(200).json({ firstName, email, token }); //send back everything
 	} catch (error) {
 		res.status(400).json({ error: error.message });
 	}
@@ -38,7 +39,7 @@ const signupUser = async (req, res) => {
 		//create the token before signing up the user
 		const token = createToken(user._id);
 
-		// res.status(200).json(user, email, token); // testing only: don't send everything
+		// res.status(200).json(user); // testing only: don't send everything
 
 		//Only send back the email and the token, no need for other info when using POSTMAN
 		res.status(200).json({ email, token });
@@ -67,7 +68,9 @@ const getUser = async (req, res) => {
 		return res.status(404).json({ error: "No such user" });
 	}
 	//if there is an id
-	const user = await User.findById(id);
+	// const user = await User.findById(id).populate("user", ["firstName", "email"]);;
+	const user = await User.findOne({ _id: id });
+	//
 	if (!user) {
 		return res.status(404).json({ error: "No such user" });
 	}
