@@ -34,7 +34,8 @@ function App() {
 						<Route
 							path="/"
 							exact
-							element={!user ? <Home /> : <Navigate to="/" />}
+							element={<Home />}
+							// element={!user ? <Home /> : <Navigate to="/" />}
 						/>
 						<Route path="*" element={<NotFound />} />
 					</Routes>
