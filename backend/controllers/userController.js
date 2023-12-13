@@ -15,15 +15,8 @@ const loginUser = async (req, res) => {
 
 		// create a token
 		const token = createToken(user._id);
-<<<<<<< HEAD
 		//res.status(200).json({ firstName, email, token }); //send back firstName,email and password
 		res.status(200).json({ email, token }); // only send back email and token when logged in
-=======
-
-		res.status(200).json({ email, token });
-
-		//res.status(200).json({ firstName, email, token }); //send back everything
->>>>>>> 55bce10657e511273af23e4eb4474e328d5c156e
 	} catch (error) {
 		res.status(400).json({ error: error.message });
 	}
