@@ -101,7 +101,10 @@ const Home = () => {
 			)}
 			{/* Start of money cards */}
 			<div className="container mt-4">
-				<h1 className="m-3 p-4"> Dumbell, Treadmill, Barbells & Ellipticals</h1>
+				<h1 className="m-3 p-4 text-uppercase">
+					{" "}
+					Dumbell, Treadmill, Barbells & Ellipticals
+				</h1>
 				<div className="row">
 					{/* Card 1 */}
 					<div className="col-md-3 mb-4">
