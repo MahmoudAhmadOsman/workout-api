@@ -15,15 +15,11 @@ const loginUser = async (req, res) => {
 
 		// create a token
 		const token = createToken(user._id);
-
-		// res.status(200).json({ email, token });
-
-		res.status(200).json({ firstName, email, token }); //send back everything
+		//res.status(200).json({ firstName, email, token }); //send back firstName,email and password
+		res.status(200).json({ email, token }); // only send back email and token when logged in
 	} catch (error) {
 		res.status(400).json({ error: error.message });
 	}
-
-	// res.json({ mssg: "login user" });
 };
 
 // signup a user
@@ -43,10 +39,11 @@ const signupUser = async (req, res) => {
 
 		//Only send back the email and the token, no need for other info when using POSTMAN
 		res.status(200).json({ email, token });
+		// res.status(200).json({ firstName, email, token });
 	} catch (error) {
 		res.status(400).json({ error: error.message });
 	}
-}; // res.json({ mssg: "signup user" });
+};
 
 //get all users
 const getAllUsers = async (req, res) => {
@@ -68,8 +65,8 @@ const getUser = async (req, res) => {
 		return res.status(404).json({ error: "No such user" });
 	}
 	//if there is an id
-	// const user = await User.findById(id).populate("user", ["firstName", "email"]);;
-	const user = await User.findOne({ _id: id });
+	const user = await User.findById(id);
+	// const user = await User.findOne({ _id: id }).populate("user", ["firstName", "email"]);
 	//
 	if (!user) {
 		return res.status(404).json({ error: "No such user" });

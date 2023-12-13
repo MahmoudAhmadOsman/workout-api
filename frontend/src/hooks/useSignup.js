@@ -30,7 +30,7 @@ export const useSignup = () => {
 			//1. save the user to local storage
 			localStorage.setItem("user", JSON.stringify(json));
 			//2. update the auth context
-			// dispatch({ type: "LOGIN", payload: json }); // don't sigin the user automatically
+			//dispatch({ type: "LOGIN", payload: json }); // don't sigin the user automatically
 
 			//3. update loading state
 			setIsLoading(false);

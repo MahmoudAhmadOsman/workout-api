@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
@@ -7,14 +6,11 @@ const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const { login, error, isLoading } = useLogin();
-	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		await login(email, password); //logout the user
-
-		// console.log("Email: ", email, "Password: ", password);
 	};
 
 	return (
@@ -39,8 +35,8 @@ const Login = () => {
 									</label>
 									<input
 										type="email"
-										id="firstName"
-										name="firstName"
+										id="email"
+										name="email"
 										placeholder="Email"
 										className="form-control form-control-lg fs-6"
 										onChange={(e) => setEmail(e.target.value)}
@@ -53,8 +49,8 @@ const Login = () => {
 									</label>
 									<input
 										type="password"
-										id="firstName"
-										name="firstName"
+										id="password"
+										name="password"
 										placeholder="Password"
 										className="form-control form-control-lg fs-6 MB-3"
 										onChange={(e) => setPassword(e.target.value)}

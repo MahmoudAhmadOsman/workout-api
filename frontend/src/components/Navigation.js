@@ -6,8 +6,8 @@ import { useAuthContext } from "../hooks/useAuthContext"; // to get the logged u
 
 const Navigation = () => {
 	const { logout } = useLogout();
-	const { user } = useAuthContext(); // to get the logged user information
-//  console.log("Nav user",user)
+	const { user, firstName } = useAuthContext(); // to get the logged user information
+	//  console.log("Nav user",user)
 	const handleClick = () => {
 		logout();
 	};
@@ -36,6 +36,7 @@ const Navigation = () => {
 						<ul className="navbar-nav me-5 ms-auto mb-lg-0">
 							<li className="nav-item">
 								<Link
+									to="/"
 									className="nav-link active"
 									aria-current="page"
 									onTouchEndCapture="/"
@@ -43,11 +44,14 @@ const Navigation = () => {
 									HOME
 								</Link>
 							</li>
-							<li className="nav-item">
-								<Link className="nav-link" to="/">
-									WORKOUTS
-								</Link>
-							</li>
+
+							{user && (
+								<li className="nav-item">
+									<Link className="nav-link" to="/workouts">
+										WORKOUTS
+									</Link>
+								</li>
+							)}
 
 							<li className="nav-item dropdown">
 								{user && (
@@ -72,12 +76,12 @@ const Navigation = () => {
 												</Link>
 											</li>
 
-											{user && (
+											{/* {user && (
 												<li className="nav-item">
 													Name:
 													<Link className="nav-link">{user.firstName}</Link>
 												</li>
-											)}
+											)} */}
 										</ul>
 									</>
 								)}

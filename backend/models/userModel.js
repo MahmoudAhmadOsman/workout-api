@@ -4,26 +4,6 @@ const validator = require("validator");
 
 const Schema = mongoose.Schema;
 
-// const userSchema = new Schema({
-// 	firstName: {
-// 		type: String,
-// 		required: true,
-// 	},
-// 	email: {
-// 		type: String,
-// 		required: true,
-// 		unique: true,
-// 	},
-// 	password: {
-// 		type: String,
-// 		required: true,
-// 	},
-// 	isAdmin: {
-// 		type: Boolean,
-// 		default: false,
-// 	},
-// });
-
 const userSchema = new Schema({
 	firstName: {
 		type: String,
@@ -53,8 +33,8 @@ userSchema.statics.signup = async function (firstName, email, password) {
 	if (validator.isEmpty(firstName)) {
 		throw new Error("First name is required!");
 	}
-	if (!validator.isLength(firstName, { min: 2, max: 10 })) {
-		throw new Error("First name must be between 2 and  3 characters!");
+	if (!validator.isLength(firstName, { min: 2 })) {
+		throw new Error("First name must be more than 2 characters!");
 	}
 	if (!validator.isEmail(email)) {
 		throw Error("Email is not valid!");
@@ -83,7 +63,10 @@ userSchema.statics.login = async function (email, password) {
 		throw Error("All fields must be filled!");
 	}
 
+	//find user by email
 	const user = await this.findOne({ email });
+
+	//check email
 	if (!user) {
 		throw Error("Incorrect email address!");
 	}
@@ -93,7 +76,6 @@ userSchema.statics.login = async function (email, password) {
 	if (!match) {
 		throw Error("Incorrect password!");
 	}
-	console.log("User from backend", user);
 	return user;
 };
 

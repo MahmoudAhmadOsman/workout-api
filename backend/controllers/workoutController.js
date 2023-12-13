@@ -1,17 +1,7 @@
 const mongoose = require("mongoose");
 const Workout = require("../models/workoutModel");
 
-//get all workouts
-
-// const getWorkouts = async (req, res) => {
-// 	const user_id = req.user._id;
-// 	try {
-// 		const workouts = await Workout.find({ user_id }).sort({ createdAt: -1 });
-// 		res.status(200).json(workouts);
-// 	} catch (error) {
-// 		next(error);
-// 	}
-// };
+ 
 // get all workouts
 const getWorkouts = async (req, res) => {
 	const user_id = req.user._id;

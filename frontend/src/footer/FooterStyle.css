@@ -1,0 +1,12 @@
+.footer {
+	height: auto;
+	margin-top: 15%;
+	background-color: #080808 !important;
+	color: #fff !important;
+	font-size: 14px;
+	font-family: inherit;
+}
+.footer .copy-right {
+	height: 120px;
+	background-color: #222;
+}
