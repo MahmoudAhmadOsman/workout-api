@@ -18,8 +18,6 @@ const Login = () => {
 		e.preventDefault();
 
 		await login(email, password); //logout the user
-
-		nagivate("/dashboard"); // redirect the user to the dashboard
 	};
 
 	return (

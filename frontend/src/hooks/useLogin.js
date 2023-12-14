@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "./useAuthContext";
 import { BASE_URL } from "../service/SignUpService";
 
@@ -6,6 +7,7 @@ export const useLogin = () => {
 	const [error, setError] = useState(null);
 	const [isLoading, setIsLoading] = useState(null);
 	const { dispatch } = useAuthContext();
+	const nagivate = useNavigate();
 
 	const login = async (email, password) => {
 		setIsLoading(true);
@@ -31,6 +33,7 @@ export const useLogin = () => {
 
 			//3. update loading state
 			setIsLoading(false);
+			nagivate("/dashboard"); // redirect the user to the dashboard
 		}
 	};
 
