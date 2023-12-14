@@ -18,7 +18,7 @@ const Dashboard = () => {
 				</div>
 				<ul className="nav flex-column">
 					<li className="nav-item">
-						<Link className="nav-link" to="#">
+						<Link className="nav-link" to="/">
 							<i className="fa fa-home"></i> Home
 						</Link>
 					</li>
