@@ -7,6 +7,13 @@ const Signup = () => {
 	const [firstName, setFirstName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [showPassword, setShowPassword] = useState(false);
+
+	// Show or hide password
+	const togglePasswordVisibility = () => {
+		setShowPassword(!showPassword);
+	};
+
 	const { signup, error, isLoading } = useSignup(); //signup, error, isLoading: are imported fron userSignup hook
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -65,7 +72,7 @@ const Signup = () => {
 										value={email}
 									/>
 								</div>
-								<div className="form-group mb-3">
+								{/* <div className="form-group mb-3">
 									<label className="form-label" htmlFor="password">
 										Password
 									</label>
@@ -78,8 +85,31 @@ const Signup = () => {
 										onChange={(e) => setPassword(e.target.value)}
 										value={password}
 									/>
+									
+								</div> */}
+								<div className="form-group mb-3">
+									<label className="form-label" htmlFor="password">
+										Password
+									</label>
+									<div className="input-group">
+										<input
+											type={showPassword ? "text" : "password"}
+											id="password"
+											name="password"
+											placeholder="Password"
+											className="form-control form-control-lg fs-6"
+											onChange={(e) => setPassword(e.target.value)}
+											value={password}
+										/>
+										<button
+											type="button"
+											className="btn btn-outline-secondary"
+											onClick={togglePasswordVisibility}
+										>
+											<i className="fa fa-eye" aria-hidden="true"></i>
+										</button>
+									</div>
 								</div>
-
 								<div className="d-grid gap-2 mt-3">
 									<button
 										type="submit"

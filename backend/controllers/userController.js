@@ -38,7 +38,7 @@ const signupUser = async (req, res) => {
 		// res.status(200).json(user); // testing only: don't send everything
 
 		//Only send back the email and the token, no need for other info when using POSTMAN
-		res.status(200).json({ email, token });
+		res.status(200).json({ email, token }); // only send back email and token when logged in
 		// res.status(200).json({ firstName, email, token });
 	} catch (error) {
 		res.status(400).json({ error: error.message });
