@@ -137,7 +137,7 @@ const FooterComponent = () => {
 				&copy; Copyright. {new Date().getFullYear()}. All rights reserved.
 				&nbsp; WORKOUTS APP DEMO.{" "}
 				<small>
-					Designed & designed by{" "}
+					Designed & developed by{" "}
 					<Link to="http://mahmoudosman.com" className="text-warning">
 						Mahmoud Osman
 					</Link>
