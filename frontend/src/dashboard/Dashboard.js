@@ -29,18 +29,15 @@ const Dashboard = () => {
 					</li>
 					<li className="nav-item">
 						<Link className="nav-link" to="#">
-							<i className="fa fa-user"></i> Profile
+							<i className="fa fa-user-circle"></i> Profile
 						</Link>
 					</li>
 					<li className="nav-item">
 						<Link className="nav-link" to="/workouts">
-							<i className="fa fa-pencil"></i> Add Workout
+							<i className="fa fa-pencil-square-o"></i> Add Workout
 						</Link>
 					</li>
 				</ul>
-				<div className="user-icon">
-					<i className="fa fa-user-circle"></i>
-				</div>
 			</div>
 		</section>
 	);
