@@ -4,7 +4,7 @@ const User = require("../models/userModel");
 //user token
 
 const createToken = (_id) => {
-	return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "1d" });
+	return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "1h" });
 };
 
 // login a user
@@ -36,10 +36,9 @@ const signupUser = async (req, res) => {
 		const token = createToken(user._id);
 
 		// res.status(200).json(user); // testing only: don't send everything
-
+		// res.status(200).json({ firstName, email, token });
 		//Only send back the email and the token, no need for other info when using POSTMAN
 		res.status(200).json({ email, token }); // only send back email and token when logged in
-		// res.status(200).json({ firstName, email, token });
 	} catch (error) {
 		res.status(400).json({ error: error.message });
 	}

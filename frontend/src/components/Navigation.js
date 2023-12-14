@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
@@ -6,8 +5,8 @@ import { useAuthContext } from "../hooks/useAuthContext"; // to get the logged u
 
 const Navigation = () => {
 	const { logout } = useLogout();
-	const { user, firstName } = useAuthContext(); // to get the logged user information
-	//  console.log("Nav user",user)
+	const { user } = useAuthContext(); // to get the logged user information
+	console.log("Nav logged in user: ", user);
 	const handleClick = () => {
 		logout();
 	};
@@ -44,7 +43,13 @@ const Navigation = () => {
 									HOME
 								</Link>
 							</li>
-
+							{/* {user && (
+								<li className="nav-item">
+									<Link className="nav-link" to="/dashboard">
+										DASHBOARD
+									</Link>
+								</li>
+							)} */}
 							{user && (
 								<li className="nav-item">
 									<Link className="nav-link" to="/workouts">
@@ -57,7 +62,7 @@ const Navigation = () => {
 								{user && (
 									<>
 										<Link
-											className="nav-link dropdown-toggle"
+											className="nav-link  dropdown-toggle"
 											href="#"
 											id="navbarDropdown"
 											role="button"
@@ -70,8 +75,13 @@ const Navigation = () => {
 											className="dropdown-menu"
 											aria-labelledby="navbarDropdown"
 										>
-											<li>
-												<Link className="dropdown-item" onClick={handleClick}>
+											<li className="dropdown-item">
+												<Link className="nav-link" to="/dashboard">
+													DASHBOARD
+												</Link>
+											</li>
+											<li className="dropdown-item">
+												<Link className="nav-link" onClick={handleClick}>
 													Logout
 												</Link>
 											</li>

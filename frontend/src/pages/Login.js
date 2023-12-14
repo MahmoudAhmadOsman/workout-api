@@ -1,15 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 import "./HomeStyle.css";
-
 
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
 	const { login, error, isLoading } = useLogin();
-
+	const nagivate = useNavigate();
 	// Show or hide password
 	const togglePasswordVisibility = () => {
 		setShowPassword(!showPassword);
@@ -18,6 +18,8 @@ const Login = () => {
 		e.preventDefault();
 
 		await login(email, password); //logout the user
+
+		nagivate("/dashboard"); // redirect the user to the dashboard
 	};
 
 	return (
