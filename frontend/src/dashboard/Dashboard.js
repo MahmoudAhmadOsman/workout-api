@@ -121,7 +121,7 @@ const Dashboard = () => {
 									to="#"
 									onClick={() => handleComponentChange(<WorkoutList />)}
 								>
-									<i className="fa fa-pencil-square-o"></i> Add Workout
+									<i className="fa fa-pencil-square-o"></i>Workout
 								</Link>
 							</li>
 						</ul>
