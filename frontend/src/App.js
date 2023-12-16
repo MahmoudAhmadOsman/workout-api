@@ -10,7 +10,6 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import WorkoutList from "./components/WorkoutList";
 import FooterComponent from "./footer/FooterComponent";
 import Dashboard from "./dashboard/Dashboard";
-import About from "./pages/About";
 
 function App() {
 	const { user } = useAuthContext(); // get logged user
