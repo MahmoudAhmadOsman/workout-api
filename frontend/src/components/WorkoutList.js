@@ -35,31 +35,7 @@ const WorkoutList = () => {
 	}, [dispatch, user]);
 
 	return (
-		// <div className="home">
-		// 	<div className="container mt-4">
-		// 		<div className="row">
-		// 			<div className="col-md-6">
-		// 				{workouts && workouts.length > 0 ? (
-		// 					workouts.map((workout) => (
-		// 						<div
-		// 							className="card shadow-lg p-3 m-1 bg-body rounded p-2 "
-		// 							key={workout._id}
-		// 						>
-		// 							<div className="card-body">
-		// 								<WorkoutDetails workout={workout} key={workout._id} />
-		// 							</div>
-		// 						</div>
-		// 					))
-		// 				) : (
-		// 					<p className="alert alert-danger">No workouts found</p>
-		// 				)}
-		// 			</div>
-		// 			<div className="col-md-6">
-		// 				<WorkoutForm />
-		// 			</div>
-		// 		</div>
-		// 	</div>
-		// </div>
+ 
 		<div className="home">
 			<div className="container mt-4">
 				<div className="row">
