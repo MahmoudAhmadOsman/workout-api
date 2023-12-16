@@ -10,11 +10,9 @@
 	/* position: fixed;*/
 	/* position: absolute;  */
 	position: relative;
-
-	/* width: 250px; */
-	width: auto;
-	height: 100vh;
-	left: 0px;
+	width: 250px;
+	height: auto;
+	left: -135px;
 	padding: 0px 20px;
 	background-color: #333;
 	transition: all 0.3s ease;
