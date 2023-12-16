@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
 import "./HomeStyle.css";
@@ -9,7 +8,6 @@ const Login = () => {
 	const [password, setPassword] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
 	const { login, error, isLoading } = useLogin();
-	const nagivate = useNavigate();
 	// Show or hide password
 	const togglePasswordVisibility = () => {
 		setShowPassword(!showPassword);
@@ -73,20 +71,7 @@ const Login = () => {
 										</button>
 									</div>
 								</div>
-								{/* <div className="form-group mb-3">
-									<label className="form-label" htmlFor="password">
-										Password
-									</label>
-									<input
-										type="password"
-										id="password"
-										name="password"
-										placeholder="Password"
-										className="form-control form-control-lg fs-6 MB-3"
-										onChange={(e) => setPassword(e.target.value)}
-										value={password}
-									/>
-								</div> */}
+
 								<div className="d-grid gap-2 MT-3">
 									<button
 										type="submit"
