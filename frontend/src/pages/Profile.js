@@ -2,6 +2,9 @@ import React from "react";
 import { useAuthContext } from "../hooks/useAuthContext"; // to get the logged user information
 
 const Profile = () => {
+
+const { user } = useAuthContext(); // to get the logged user information
+
  // Sample user data
   // const user = {
   //   firstName: 'John',
