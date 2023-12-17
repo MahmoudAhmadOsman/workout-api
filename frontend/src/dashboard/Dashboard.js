@@ -1,10 +1,9 @@
-import "./DashboardStyle.css";
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import About from "../pages/About";
 import Profile from "./Profile";
 import WorkoutList from "../components/WorkoutList";
+import "./DashboardStyle.css";
 
 const Dashboard = () => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
