@@ -1,4 +1,5 @@
 import React from "react";
+import { useAuthContext } from "../hooks/useAuthContext"; // to get the logged user information
 
 const Profile = () => {
  // Sample user data
@@ -6,7 +7,6 @@ const Profile = () => {
     firstName: 'John',
     lastName: 'Doe',
     email: 'johndoe@example.com',
-    // Replace the imageURL with the URL of the user's profile picture
     imageURL: 'https://via.placeholder.com/150', // Placeholder image URL
   };
 
@@ -32,7 +32,11 @@ const Profile = () => {
             <strong>Last Name:</strong> {user.lastName}
           </p>
           <p className="card-text">
-            <strong>Email:</strong> {user.email}
+            <strong>Email:</strong> 
+             {user && (
+													<Link className="nav-link">{user.email}</Link>
+				
+											)} 
           </p>
         </div>
       </div>
