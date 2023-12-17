@@ -35,7 +35,6 @@ const WorkoutList = () => {
 	}, [dispatch, user]);
 
 	return (
- 
 		<div className="home">
 			<div className="container mt-4">
 				<div className="row">
@@ -58,18 +57,13 @@ const WorkoutList = () => {
 						)}
 					</div>
 					<div className="col-md-6">
-
-					{isLoading ? ( 
+						{!workouts ? (
 							<p className="loading">{<Loading />}</p>
-						) :(
+						) : (
 							<>
-							<WorkoutForm />
+								<WorkoutForm />
 							</>
-						)
-								
-								}
-				
-						
+						)}
 					</div>
 				</div>
 			</div>

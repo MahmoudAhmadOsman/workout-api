@@ -1,25 +1,46 @@
-/* App.css */
-
 .dashboard {
 	position: relative;
-	/* width: 250px; */
 	width: 100%;
 	height: auto;
 }
 .dashboard .sidebar {
-	/* position: fixed;*/
-	/* position: absolute;  */
 	position: relative;
 	width: 250px;
 	height: 100vh;
-	left: -135px;
+	/* left: -135px; */
+	left: -25px;
 	padding: 0px 20px;
 	background-color: #333;
 	transition: all 0.3s ease;
 }
+/* For devices with a maximum width of 767px (e.g., mobile phones) */
+@media (max-width: 767px) {
+	.dashboard .sidebar {
+		width: 100%;
+		height: auto;
+		left: 0;
+	}
+}
+
+/* For devices with a minimum width of 768px and a maximum width of 1023px (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.dashboard .sidebar {
+		width: 200px;
+		/* Adjust other styles as needed */
+	}
+}
+
+/* For devices with a minimum width of 1024px (e.g., desktops) */
+@media (min-width: 1024px) {
+	.dashboard .sidebar {
+		width: 250px;
+		/* You can redefine other styles if necessary */
+	}
+}
 
 .dashboard .sidebar.open {
-	left: 0;
+	/* left: 0; */
+	left: -15px;
 }
 
 .dashboard .sidebar-header {

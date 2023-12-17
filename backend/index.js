@@ -1,6 +1,8 @@
 require("dotenv").config();
 
 const express = require("express");
+const path = require("path");
+
 var cors = require("cors");
 
 const mongoose = require("mongoose");
@@ -12,6 +14,13 @@ app.use(cors());
 
 // middleware
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, "public")));
+
+// Catch-all route to serve the main index.html
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 app.use((req, res, next) => {
 	console.log(req.path, req.method);

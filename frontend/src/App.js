@@ -15,8 +15,8 @@ function App() {
 	const { user } = useAuthContext(); // get logged user
 
 	return (
-		<div className="home-paage">
-			<BrowserRouter>
+		<div className="home-page">
+			<BrowserRouter basename={process.env.PUBLIC_URL}>
 				<Navigation />
 				<div className="pages">
 					<Routes>
