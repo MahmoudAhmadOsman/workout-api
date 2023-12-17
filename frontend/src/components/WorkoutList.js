@@ -57,7 +57,7 @@ const WorkoutList = () => {
 						)}
 					</div>
 					<div className="col-md-6">
-						{isLoading ? (
+						{!workouts ? (
 							<p className="loading">{<Loading />}</p>
 						) : (
 							<>
