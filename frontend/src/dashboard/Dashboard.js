@@ -42,7 +42,7 @@ const Dashboard = () => {
 								<li className="nav-item">
 									<Link
 										className="nav-link"
-										to="#"
+										to="#/about"
 										onClick={() => handleComponentChange(<About />)} // Replace About with your About component
 									>
 										<i className="fa fa-info-circle"></i> About
@@ -51,7 +51,7 @@ const Dashboard = () => {
 								<li className="nav-item">
 									<Link
 										className="nav-link"
-										to="#"
+										to="#/profile"
 										onClick={() => handleComponentChange(<Profile />)}
 									>
 										<i className="fa fa-user-circle"></i> Profile
@@ -60,7 +60,7 @@ const Dashboard = () => {
 								<li className="nav-item">
 									<Link
 										className="nav-link"
-										to="#"
+										to="#/workouts"
 										onClick={() => handleComponentChange(<WorkoutList />)}
 									>
 										<i className="fa fa-pencil-square-o"></i>Workout
