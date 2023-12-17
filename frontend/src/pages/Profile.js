@@ -1,7 +1,7 @@
 import React from "react";
 
 const Profile = () => {
-	// Sample user data
+ // Sample user data
   const user = {
     firstName: 'John',
     lastName: 'Doe',
@@ -12,11 +12,11 @@ const Profile = () => {
 
   return (
     <div className="container mt-4">
-      <Card style={{ maxWidth: '400px' }}>
-        <Card.Header>
+      <div className="card" style={{ maxWidth: '400px' }}>
+        <div className="card-header">
           <h5 className="card-title">User Profile</h5>
-        </Card.Header>
-        <Card.Body>
+        </div>
+        <div className="card-body">
           <div className="text-center">
             <img
               src={user.imageURL}
@@ -25,17 +25,17 @@ const Profile = () => {
               style={{ width: '150px', height: '150px' }}
             />
           </div>
-          <Card.Text>
+          <p className="card-text">
             <strong>First Name:</strong> {user.firstName}
-          </Card.Text>
-          <Card.Text>
+          </p>
+          <p className="card-text">
             <strong>Last Name:</strong> {user.lastName}
-          </Card.Text>
-          <Card.Text>
+          </p>
+          <p className="card-text">
             <strong>Email:</strong> {user.email}
-          </Card.Text>
-        </Card.Body>
-      </Card>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
