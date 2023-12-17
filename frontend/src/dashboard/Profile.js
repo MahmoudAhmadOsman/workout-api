@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuthContext } from "../hooks/useAuthContext"; // to get the logged user information
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Profile = () => {
 	const { user } = useAuthContext(); // to get the logged user information

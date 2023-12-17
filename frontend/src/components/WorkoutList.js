@@ -35,11 +35,11 @@ const WorkoutList = () => {
 	}, [dispatch, user]);
 
 	return (
-		<div className="home">
+		<div className="workout">
 			<div className="container mt-4">
 				<div className="row">
 					<div className="col-md-6">
-						{isLoading ? ( // Show loading indicator if isLoading is true
+						{isLoading ? (
 							<p className="loading">{<Loading />}</p>
 						) : workouts && workouts.length > 0 ? (
 							workouts.map((workout) => (
@@ -57,7 +57,7 @@ const WorkoutList = () => {
 						)}
 					</div>
 					<div className="col-md-6">
-						{!workouts ? (
+						{isLoading ? (
 							<p className="loading">{<Loading />}</p>
 						) : (
 							<>
