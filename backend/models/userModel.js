@@ -9,6 +9,15 @@ const userSchema = new Schema({
 		type: String,
 		required: true,
 	},
+	middleName: {
+		type: String,
+		required: true,
+	},
+	lastName: {
+		type: String,
+		required: true,
+	},
+
 	email: {
 		type: String,
 		required: true,
@@ -29,7 +38,13 @@ const userSchema = new Schema({
 });
 
 //Create static signup method
-userSchema.statics.signup = async function (firstName, email, password) {
+userSchema.statics.signup = async function (
+	firstName,
+	middleName,
+	lastName,
+	email,
+	password
+) {
 	// validate firstName, email and password
 	if (!firstName || !email || !password) {
 		throw Error("All fields must be filled!");
@@ -37,8 +52,11 @@ userSchema.statics.signup = async function (firstName, email, password) {
 	if (validator.isEmpty(firstName)) {
 		throw new Error("First name is required!");
 	}
-	if (!validator.isLength(firstName, { min: 2 })) {
-		throw new Error("First name must be more than 2 characters!");
+	if (!validator.isEmpty(middleName)) {
+		throw new Error("Middle is required!");
+	}
+	if (!validator.isEmpty(lastName)) {
+		throw new Error("Last is required!");
 	}
 	if (!validator.isEmail(email)) {
 		throw Error("Email is not valid!");
@@ -57,7 +75,13 @@ userSchema.statics.signup = async function (firstName, email, password) {
 	const salt = await bcrypt.genSalt(10);
 	const hash = await bcrypt.hash(password, salt);
 	//create user
-	const user = await this.create({ firstName, email, password: hash });
+	const user = await this.create({
+		firstName,
+		middleName,
+		lastName,
+		email,
+		password: hash,
+	});
 	return user;
 };
 

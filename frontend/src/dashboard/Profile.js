@@ -25,6 +25,9 @@ const Profile = () => {
 								<b>First Name:&nbsp; </b>John
 							</li>
 							<li className="list-group-item">
+								<b>Middle Name:&nbsp; </b>Aston
+							</li>
+							<li className="list-group-item">
 								<b>Last Name:&nbsp; </b>Doe
 							</li>
 							<li className="list-group-item">

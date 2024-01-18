@@ -15,8 +15,8 @@ export const authReducer = (state, action) => {
 
 export const AuthContextProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(authReducer, {
-		user: null,
-		// user: [],
+		// user: null,
+		user: {},
 	});
 
 	//Check if the user is the localStorage else load the  user from the localStorage

@@ -5,6 +5,8 @@ import { useSignup } from "../hooks/useSignup";
 
 const Signup = () => {
 	const [firstName, setFirstName] = useState("");
+	const [middleName, setMiddleName] = useState("");
+	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
@@ -18,7 +20,7 @@ const Signup = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		//send the request to the backend by create custom hook called [useSignup]
-		await signup(firstName, email, password);
+		await signup(firstName, middleName, lastName, email, password);
 
 		// console.log("Email: ", email, "Password: ", password);
 		setEmail("");
@@ -57,6 +59,37 @@ const Signup = () => {
 										value={firstName}
 									/>
 								</div>
+
+								{/* Middle name  */}
+								<div className="form-group mb-3">
+									<label className="form-label" htmlFor="middleName">
+										Middle Name
+									</label>
+									<input
+										type="text"
+										id="middleName"
+										name="middleName"
+										placeholder="middle name"
+										className="form-control form-control-lg fs-6"
+										onChange={(e) => setMiddleName(e.target.value)}
+										value={middleName}
+									/>
+								</div>
+								{/* Last Name  */}
+								<div className="form-group mb-3">
+									<label className="form-label" htmlFor="lastName">
+										Last Name
+									</label>
+									<input
+										type="text"
+										id="lastName"
+										name="lastName"
+										placeholder="Last name"
+										className="form-control form-control-lg fs-6"
+										onChange={(e) => setLastName(e.target.value)}
+										value={lastName}
+									/>
+								</div>
 								{/* Email address */}
 								<div className="form-group mb-3">
 									<label className="form-label" htmlFor="email">
@@ -72,21 +105,7 @@ const Signup = () => {
 										value={email}
 									/>
 								</div>
-								{/* <div className="form-group mb-3">
-									<label className="form-label" htmlFor="password">
-										Password
-									</label>
-									<input
-										type="password"
-										id="firstName"
-										name="firstName"
-										placeholder="Password"
-										className="form-control form-control-lg fs-6"
-										onChange={(e) => setPassword(e.target.value)}
-										value={password}
-									/>
-									
-								</div> */}
+
 								<div className="form-group mb-3">
 									<label className="form-label" htmlFor="password">
 										Password
@@ -116,7 +135,7 @@ const Signup = () => {
 										className="btn btn-outline-primary fw-bold btn-lg"
 										disabled={isLoading}
 									>
-										RESIGER
+										REGISTER
 									</button>
 								</div>
 							</form>
